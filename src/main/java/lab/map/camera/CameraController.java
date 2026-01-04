@@ -7,16 +7,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import lab.sim.Config;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class CameraController extends InputAdapter {
     private final OrthographicCamera cam;
     private final Viewport worldViewport;
     private float scrollYAccum = 0f;
-
-    public CameraController(OrthographicCamera cam, Viewport worldViewport) {
-        this.cam = cam;
-        this.worldViewport = worldViewport;
-    }
 
     @Override
     public boolean scrolled(float amountX, float amountY) {

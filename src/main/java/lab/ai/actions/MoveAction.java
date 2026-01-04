@@ -3,7 +3,9 @@ package lab.ai.actions;
 import lab.ai.Agent;
 import lab.map.map.TileMap;
 import lab.sim.Config;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class MoveAction implements Action {
     private boolean active;
     private float startX, startY;
@@ -14,8 +16,7 @@ public class MoveAction implements Action {
     private final TileMap map;
     private Agent agent;
 
-    public MoveAction(TileMap map) {
-        this.map = map;
+    {
         this.active = false;
         this.moveT = 0f;
     }

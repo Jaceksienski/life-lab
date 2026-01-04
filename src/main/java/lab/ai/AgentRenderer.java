@@ -2,13 +2,11 @@ package lab.ai;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import lab.map.map.TileMap;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class AgentRenderer {
     private final TileMap map;
-
-    public AgentRenderer(TileMap map) {
-        this.map = map;
-    }
 
     public void render(ShapeRenderer shape, Agent agent) {
         if (agent == null) return;

@@ -6,9 +6,11 @@ import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import lab.map.map.TileMap;
+import lombok.RequiredArgsConstructor;
 
 import java.util.function.BiConsumer;
 
+@RequiredArgsConstructor
 public class TilePicker extends InputAdapter {
     private final Viewport worldViewport;
     private final TileMap map;
@@ -17,16 +19,6 @@ public class TilePicker extends InputAdapter {
     private final BiConsumer<Integer, Integer> onHoverChanged;
 
     private final Vector2 tmp = new Vector2();
-
-    public TilePicker(Viewport worldViewport,
-                      TileMap map,
-                      BiConsumer<Integer, Integer> onSelectionChanged,
-                      BiConsumer<Integer, Integer> onHoverChanged) {
-        this.worldViewport = worldViewport;
-        this.map = map;
-        this.onSelectionChanged = onSelectionChanged;
-        this.onHoverChanged = onHoverChanged;
-    }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {

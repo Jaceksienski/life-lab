@@ -6,7 +6,6 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.kotcrab.vis.ui.VisUI;
@@ -109,16 +108,7 @@ public class TileMapApp extends ApplicationAdapter {
         agentRenderer.render(shape, agent);
 
         // UI pass
-        String hoverStr = (hoverX >= 0) ? "(" + hoverX + "," + hoverY + ")" : "-";
-        String selStr = (selectedX >= 0) ? "(" + selectedX + "," + selectedY + ")" : "-";
-
-        String info =
-                "FPS: " + Gdx.graphics.getFramesPerSecond() + "\n" +
-                        "Zoom: " + String.format(Locale.US, "%.2f", cam.zoom) + "\n" +
-                        "Hover: " + hoverStr + "\n" +
-                        "Selected: " + selStr + "\n" +
-                        "Agent tile: (" + agent.tileX + "," + agent.tileY + ")\n" +
-                        "Agent moving: " + agent.isMoving();
+        String info = getInfo();
 
         ui.updateInfo(info);
         ui.updateLogs(logs.joinAll());
@@ -127,11 +117,22 @@ public class TileMapApp extends ApplicationAdapter {
         ui.stage.draw();
     }
 
+    private String getInfo() {
+        String hoverStr = (hoverX >= 0) ? "(" + hoverX + "," + hoverY + ")" : "-";
+        String selStr = (selectedX >= 0) ? "(" + selectedX + "," + selectedY + ")" : "-";
+
+        return "FPS: " + Gdx.graphics.getFramesPerSecond() + "\n" +
+                "Zoom: " + String.format(Locale.US, "%.2f", cam.zoom) + "\n" +
+                "Hover: " + hoverStr + "\n" +
+                "Selected: " + selStr + "\n" +
+                "Agent tile: (" + agent.tileX + "," + agent.tileY + ")\n" +
+                "Agent moving: " + agent.isMoving();
+    }
+
     @Override
     public void resize(int width, int height) {
         ui.resize(width, height);
 
-//        int worldW = Math.max(1, (int) (width - Config.UI_PANEL_WIDTH));
         int worldW = Math.max(1, width);
         int worldH = Math.max(1, height);
 

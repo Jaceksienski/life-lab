@@ -1,6 +1,5 @@
 package lab.map.map;
 
-
 public class TileMap {
     public final int width, height;
     public final float tileSize;
