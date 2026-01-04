@@ -1,14 +1,15 @@
-package lab.desktop;
+package lab;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import lab.sim.TileMapApp;
+import lab.sim.Config;
+import lab.map.map.TileMapApp;
 
 public class DesktopLauncher {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Lwjgl3ApplicationConfiguration cfg = new Lwjgl3ApplicationConfiguration();
-        cfg.setTitle("Life Lab - TileMap");
-        cfg.setWindowedMode(1000, 700);
+        cfg.setTitle("Life Lab - TileMap + Camera");
+        cfg.setWindowedMode(Config.WINDOW_W, Config.WINDOW_H);
         cfg.useVsync(true);
 
         new Lwjgl3Application(new TileMapApp(), cfg);

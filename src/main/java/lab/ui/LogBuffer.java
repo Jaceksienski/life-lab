@@ -1,4 +1,4 @@
-package lab;
+package lab.ui;
 
 import lab.sim.Config;
 

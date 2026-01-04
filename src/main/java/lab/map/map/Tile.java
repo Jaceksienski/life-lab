@@ -1,4 +1,4 @@
-package lab.map;
+package lab.map.map;
 
 public class Tile {
     public final int x;
